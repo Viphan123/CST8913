@@ -1,6 +1,6 @@
 ## On-Premises Architecture
 
-# 1. On-premise components:
+### 1. On-premise components:
 
 - **Web Application (Monolithic)**: Hosted on physical servers, responsible for handling user requests and transactions.
 - **Backend SQL Database**: Stores all customer, product, and transaction data, assumingly in Microsoft Access.
@@ -8,7 +8,7 @@
 - **Networking**: Managed using on-premises routers, switches, and firewalls.
 - **Email Services**: SMTP-based service used for sending notifications to clients.
 
-# 2. Key Components to Migrate: 
+### 2. Key Components to Migrate: 
 
 Each of these components must be mapped to appropriate cloud service models (IaaS, PaaS, or SaaS):
 
@@ -49,23 +49,23 @@ flowchart TD
 
 ## Detailed Migration Steps
 
-# Step 1: Web Application (Monolithic) to IaaS (VM):
+### Step 1: Web Application (Monolithic) to IaaS (VM):
 
 - Strategy: Perform a "Lift and Shift" migration by moving the web application as-is onto a Virtual Machine in the cloud.
 - Benefits: Control over the application environment and flexibility in customization, while keeping minimal changes to the codebase.
-# Step 2: Backend SQL Database to PaaS (Azure SQL Database):
+### Step 2: Backend SQL Database to PaaS (Azure SQL Database):
 
 - Strategy: Refactor the backend database to a managed PaaS offering, which reduces the management of infrastructure while providing automatic scaling and backups.
 - Benefits: Improved performance, lower administrative effort, and cost-effectiveness.
-# Step 3: File Storage to PaaS (Azure Blob Storage):
+### Step 3: File Storage to PaaS (Azure Blob Storage):
 
 - Strategy: Refactor the file storage to a scalable and cost-effective Blob Storage service, which allows for large-scale storage.
 - Benefits: Scalability, security, and easier management of files compared to managing storage on a VM.
-# Step 4: Networking (Cloud-Native):
+### Step 4: Networking (Cloud-Native):
 
 - Strategy: Rehost the networking infrastructure using Cloud-Native components such as Network Security Groups (NSGs), VPN, and Load Balancers.
 - Benefits: Advanced networking capabilities and flexible customization, allowing for better network segmentation and security.
-# Step 5: Email Services to SaaS (Microsoft 365, SendGrid):
+### Step 5: Email Services to SaaS (Microsoft 365, SendGrid):
 
 - Strategy: Refactor email services to a SaaS provider like Microsoft 365 or SendGrid, automating and scaling email delivery.
 - Benefits: Reduced complexity and maintenance with a scalable, reliable email solution.
