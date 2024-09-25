@@ -21,13 +21,19 @@ Each of these components must be mapped to appropriate cloud service models (Iaa
 The following diagram represents the on-premises architecture:
 
 ```mermaid
-flowchart TD
-    subgraph On-Premises_Architecture
-        A[Web Application Monolithic - Physical server] --> B[Backend SQL Database]
-        A --> C[File Storage]
-        A --> D[Networking Routers/Firewalls]
-        A --> E[Email Services SMTP]
+graph TD
+        A[Physical Server Hosting Web App]
+    subgraph Network from routers
+        direction TB
+        B[SQL Server Database]
+        C[Local File Storage]
+        E[Internal Email Servers]
+        D[Security & Firewalls]
     end
+    A --> D
+    D --> B
+    D --> C
+    D --> E
 ```
 ## Migration strategy
 
