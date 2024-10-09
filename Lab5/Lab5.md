@@ -17,12 +17,14 @@ graph TD
 
     subgraph Web Layer
         F[AWS Elastic Beanstalk]
-        I[EC2 Instances (Web)]
+        I[EC2 Instances - Web1]
+        I2[EC2 Instances - Web2]
     end
 
     subgraph Database Layer
         G[AWS RDS]
-        J[EC2 Instances (Database)]
+        J[EC2 Instances - Database]
+        J2[EC2 Instances - Database]
     end
 
     subgraph Networking
@@ -32,7 +34,9 @@ graph TD
     A --> D
     D --> E
     E --> F
+    E --> F2
     F --> I
+    F2 --> I2
     F --> G
     G --> J
 
