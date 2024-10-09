@@ -17,14 +17,14 @@ graph TD
 
     subgraph Web Layer
         F[AWS Elastic Beanstalk]
-        I[EC2 Instances - Web1]
-        I2[EC2 Instances - Web2]
+        I1[EC2 Instance 1 (Web)]
+        I2[EC2 Instance 2 (Web)]
     end
 
     subgraph Database Layer
         G[AWS RDS]
-        J[EC2 Instances - Database]
-        J2[EC2 Instances - Database]
+        J1[EC2 Instance 1 (Database)]
+        J2[EC2 Instance 2 (Database)]
     end
 
     subgraph Networking
@@ -34,11 +34,11 @@ graph TD
     A --> D
     D --> E
     E --> F
-    E --> F2
-    F --> I
-    F2 --> I2
+    F --> I1
+    F --> I2
     F --> G
-    G --> J
+    G --> J1
+    G --> J2
 
     F -->|Communicates| H
     G -->|Communicates| H
@@ -48,8 +48,10 @@ graph TD
     style E fill:#9ff,stroke:#333,stroke-width:2px;
     style F fill:#ff9,stroke:#333,stroke-width:2px;
     style G fill:#ff9,stroke:#333,stroke-width:2px;
-    style I fill:#ccc,stroke:#333,stroke-width:2px;
-    style J fill:#ccc,stroke:#333,stroke-width:2px;
+    style I1 fill:#ccc,stroke:#333,stroke-width:2px;
+    style I2 fill:#ccc,stroke:#333,stroke-width:2px;
+    style J1 fill:#ccc,stroke:#333,stroke-width:2px;
+    style J2 fill:#ccc,stroke:#333,stroke-width:2px;
     style H fill:#f99,stroke:#333,stroke-width:2px;
 ```
 # A description of the target architecture
