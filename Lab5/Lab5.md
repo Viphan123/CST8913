@@ -17,10 +17,12 @@ graph TD
 
     subgraph Web Layer
         F[AWS Elastic Beanstalk]
+        I[EC2 Instances (Web)]
     end
 
     subgraph Database Layer
         G[AWS RDS]
+        J[EC2 Instances (Database)]
     end
 
     subgraph Networking
@@ -30,8 +32,9 @@ graph TD
     A --> D
     D --> E
     E --> F
+    F --> I
     F --> G
-
+    G --> J
 
     F -->|Communicates| H
     G -->|Communicates| H
@@ -41,6 +44,8 @@ graph TD
     style E fill:#9ff,stroke:#333,stroke-width:2px;
     style F fill:#ff9,stroke:#333,stroke-width:2px;
     style G fill:#ff9,stroke:#333,stroke-width:2px;
+    style I fill:#ccc,stroke:#333,stroke-width:2px;
+    style J fill:#ccc,stroke:#333,stroke-width:2px;
     style H fill:#f99,stroke:#333,stroke-width:2px;
 ```
 # A description of the target architecture
@@ -65,7 +70,7 @@ Networking: VPC (Virtual Private Cloud) facilitates secure communication between
 ## 2. Provisioning AWS Resources
 - Set Up VPC: Create a Virtual Private Cloud (VPC) for network isolation, security, and control over resources.
 - Launch Elastic Beanstalk: Create an AWS Elastic Beanstalk for the web application from the WebServer VM. Beanstalk is a better solution, allowing automatic scaling, load balancing, and easy deploying updates.
-- Set Up Amazon RDS: Instead of the SQLVM, we will migrate the database to Amazon RDS, a managed database service that ensures highavailability and failover options.
+- Set Up Amazon RDS: Instead of the SQLVM, we will migrate the database to Amazon RDS, a managed database service that ensures high availability and failover options.
 ## 3. Data Migration
 - Database Migration:
 Use AWS Database Migration Service (DMS) to replicate the existing SQL database (from SQLVM) to Amazon RDS.
